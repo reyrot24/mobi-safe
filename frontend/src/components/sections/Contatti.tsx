@@ -17,12 +17,23 @@ import {
   Phone,
   Mail,
   MapPin,
-  MessageSquare,
   Clock,
   AlertCircle,
   Send,
+  PhoneCall,
 } from "lucide-react";
 import SimpleMap from "@/components/SimpleMap";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import PrivacyPolicy from "./PrivacyPolicy";
 
 type SubmitStatus = "idle" | "success" | "error";
 
@@ -251,7 +262,7 @@ const Contatti = () => {
     {
       icon: Phone,
       title: "Telefono",
-      value: "800 123 456",
+      value: "081 17676699",
       description: "Numero verde gratuito",
       available: "24/7",
     },
@@ -270,11 +281,15 @@ const Contatti = () => {
       available: "Lun-Ven 9-18",
     },
     {
-      icon: MessageSquare,
-      title: "Chat Live",
+      icon: PhoneCall,
+      title: "Prenota una call",
       value: "Assistenza immediata",
       description: "Supporto in tempo reale",
-      available: "Lun-Dom 8-22",
+      available: "Lun-Ven 9-18",
+      button: {
+        label: "Prenota",
+        link: "https://tidycal.com/sviluppo/introduzione-mobility-express-mnop9zp",
+      },
     },
   ];
 
@@ -487,17 +502,25 @@ const Contatti = () => {
                         }
                         className="mt-1"
                       />
-                      <label className="text-sm text-gray-600">
-                        Acconsento al trattamento dei miei dati personali
-                        secondo la
-                        <a
-                          href="#"
-                          className="text-blue-600 hover:underline ml-1"
-                        >
-                          Privacy Policy
-                        </a>
-                        . *
-                      </label>
+                      <div className="flex ">
+                        <label className="text-sm flex gap-1 text-gray-600">
+                          Acconsento al trattamento dei miei dati personali
+                          secondo la
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <p className="text-blue-600 hover:underline cursor-pointer">
+                                Privacy Policy
+                              </p>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-lg sm:max-w-3xl h-[700px] overflow-auto no-scrollbar">
+                              <DialogTitle hidden />
+                              <DialogDescription hidden />
+                              <PrivacyPolicy />
+                            </DialogContent>
+                          </Dialog>
+                          . *
+                        </label>
+                      </div>
                     </div>
 
                     {/* Submit Button */}
@@ -510,7 +533,6 @@ const Contatti = () => {
                     </Button>
 
                     {/* Status Messages */}
-
                     {submitStatus === "error" && (
                       <div className="flex items-center space-x-2 text-red-600 text-sm bg-red-50 p-3 rounded-lg">
                         <AlertCircle className="h-4 w-4" />
@@ -529,7 +551,7 @@ const Contatti = () => {
               const IconComponent = info.icon;
               return (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex flex-row justify-between items-center">
                     <div className="flex items-start space-x-4">
                       <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                         <IconComponent className="h-6 w-6 text-blue-600" />
@@ -550,6 +572,22 @@ const Contatti = () => {
                         </div>
                       </div>
                     </div>
+                    {index === 3 && (
+                      <div>
+                        <Button
+                          size="lg"
+                          className="bg-blue-600 hover:bg-blue-700 text-white"
+                        >
+                          <a
+                            href="https://tidycal.com/sviluppo/introduzione-mobility-express-mnop9zp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Prenota una call
+                          </a>
+                        </Button>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               );

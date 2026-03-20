@@ -309,10 +309,15 @@ const Piani = () => {
           </Button>
           <Button
             size="lg"
-            onClick={() => scrollToSection("#contatti")}
             className="bg-blue-600 hover:bg-blue-700 text-white"
           >
-            Parla con un Esperto
+            <a
+              href="https://tidycal.com/sviluppo/introduzione-mobility-express-mnop9zp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prenota una call
+            </a>
           </Button>
         </div>
       </div>

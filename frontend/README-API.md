@@ -3,6 +3,7 @@
 ## 📋 Panoramica
 
 Il sito Mobility Safe ora include API funzionanti per:
+
 - **Form Contatti**: Invio email automatico e gestione richieste
 - **Google Maps**: Mappa interattiva della sede aziendale
 
@@ -42,6 +43,7 @@ EMAIL_PASS=your_app_password_here
 Gestisce l'invio delle richieste di contatto.
 
 **Request Body:**
+
 ```json
 {
   "name": "Mario Rossi",
@@ -56,6 +58,7 @@ Gestisce l'invio delle richieste di contatto.
 ```
 
 **Response (Success):**
+
 ```json
 {
   "success": true,
@@ -65,6 +68,7 @@ Gestisce l'invio delle richieste di contatto.
 ```
 
 **Response (Error):**
+
 ```json
 {
   "error": "Campi obbligatori mancanti"
@@ -76,6 +80,7 @@ Gestisce l'invio delle richieste di contatto.
 Endpoint di test per verificare che l'API sia attiva.
 
 **Response:**
+
 ```json
 {
   "message": "API Contact endpoint attivo",
@@ -88,19 +93,19 @@ Endpoint di test per verificare che l'API sia attiva.
 ### Utilizzo
 
 ```tsx
-import GoogleMap from '@/components/GoogleMap'
+import GoogleMap from "@/components/GoogleMap";
 
-<GoogleMap 
+<GoogleMap
   center={{ lat: 40.8518, lng: 14.2681 }}
   zoom={16}
   markers={[
     {
       position: { lat: 40.8518, lng: 14.2681 },
       title: "MOBILITY EXPRESS S.R.L.",
-      info: "<div>Informazioni aggiuntive</div>"
-    }
+      info: "<div>Informazioni aggiuntive</div>",
+    },
   ]}
-/>
+/>;
 ```
 
 ### Props
@@ -121,6 +126,7 @@ Il sistema invia automaticamente:
 ### Template Email
 
 Le email includono:
+
 - Dati completi del cliente
 - Timestamp della richiesta
 - Informazioni aziendali
@@ -225,7 +231,7 @@ curl -X POST http://localhost:3000/api/contact \
 ## 📞 Supporto
 
 Per assistenza tecnica:
-- Email: info@mobilitysafe.it
-- Telefono: 800 123 456
-- Documentazione: Questo file README-API.md
 
+- Email: info@mobilitysafe.it
+- Telefono: 081 17676699
+- Documentazione: Questo file README-API.md

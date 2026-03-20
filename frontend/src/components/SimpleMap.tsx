@@ -1,12 +1,16 @@
-'use client'
+"use client";
 
-import { MapPin, ExternalLink } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { MapPin, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const SimpleMap = () => {
-  const address = "Via Emanuele Gianturco 92, 80146 Napoli (NA)"
-  const googleMapsUrl = `https://maps.google.com/?q=${encodeURIComponent(address)}`
-  const appleMapsUrl = `https://maps.apple.com/?q=${encodeURIComponent(address)}`
+  const address = "Via Emanuele Gianturco 92, 80146 Napoli (NA)";
+  const googleMapsUrl = `https://maps.google.com/?q=${encodeURIComponent(
+    address
+  )}`;
+  const appleMapsUrl = `https://maps.apple.com/?q=${encodeURIComponent(
+    address
+  )}`;
 
   return (
     <div className="w-full h-64 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg overflow-hidden shadow-lg relative">
@@ -34,11 +38,9 @@ const SimpleMap = () => {
           <p className="text-gray-700 font-medium mb-1">
             Via Emanuele Gianturco 92
           </p>
-          <p className="text-gray-700 font-medium mb-3">
-            80146 Napoli (NA)
-          </p>
+          <p className="text-gray-700 font-medium mb-3">80146 Napoli (NA)</p>
           <div className="flex flex-wrap justify-center gap-2 text-sm text-gray-600">
-            <span>📞 800 123 456</span>
+            <span>📞 081 17676699</span>
             <span>•</span>
             <span>📧 info@mobilitysafe.it</span>
           </div>
@@ -47,16 +49,16 @@ const SimpleMap = () => {
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-3 justify-center">
           <Button
-            onClick={() => window.open(googleMapsUrl, '_blank')}
+            onClick={() => window.open(googleMapsUrl, "_blank")}
             className="bg-blue-600 hover:bg-blue-700 text-white"
             size="sm"
           >
             <ExternalLink className="h-4 w-4 mr-2" />
             Google Maps
           </Button>
-          
+
           <Button
-            onClick={() => window.open(appleMapsUrl, '_blank')}
+            onClick={() => window.open(appleMapsUrl, "_blank")}
             variant="outline"
             className="border-blue-600 text-blue-600 hover:bg-blue-50"
             size="sm"
@@ -78,8 +80,7 @@ const SimpleMap = () => {
       <div className="absolute bottom-6 left-6 w-2 h-2 bg-orange-400 rounded-full opacity-60"></div>
       <div className="absolute top-1/3 left-4 w-1 h-1 bg-blue-500 rounded-full opacity-40"></div>
     </div>
-  )
-}
+  );
+};
 
-export default SimpleMap
-
+export default SimpleMap;
