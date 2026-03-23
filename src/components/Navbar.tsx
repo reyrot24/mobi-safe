@@ -47,20 +47,30 @@ const Navbar = () => {
               alt="Mobility Safe"
               width={0}
               height={0}
-              className="h-40 w-auto"
+              className="h-20 w-auto "
             />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-1">
-              {navItems.map((item) => (
+              {navItems.map((item) =>
                 item.subItems ? (
                   <div key={item.label} className="relative group">
                     <button className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center">
                       {item.label}
-                      <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <svg
+                        className="ml-1 h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     </button>
                     <div className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -85,8 +95,8 @@ const Navbar = () => {
                   >
                     {item.label}
                   </button>
-                )
-              ))}
+                ),
+              )}
             </div>
           </div>
 
@@ -127,7 +137,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden h-screen overflow-y-auto pb-20">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-            {navItems.map((item) => (
+            {navItems.map((item) =>
               item.subItems ? (
                 <div key={item.label} className="space-y-1">
                   <div className="px-3 py-2 text-sm font-semibold text-gray-500 uppercase tracking-wider">
@@ -151,8 +161,8 @@ const Navbar = () => {
                 >
                   {item.label}
                 </button>
-              )
-            ))}
+              ),
+            )}
             <div className="pt-2 px-3">
               <Button
                 onClick={() => scrollToSection("#wizard")}
